@@ -5,6 +5,7 @@
 
 Formaatti:
 "Tiedot";"Vuosi";"Kunta";"Äänestäneet miehet";"Äänestäneet naiset"
+
 Esimerkki: "äänestäneet";"2021";"091 Helsinki";150561;184306
 
 ### Ehdokas_data.csv
@@ -12,6 +13,7 @@ Ehdokas_data.csv: Vuoden 2021 kuntavaaleissa ehdolla olleet jaeteltuna naisiin j
 
 Formaatti:
 "Tiedot";"Vuosi";"Kunta";"Puolue";"Yhteensä";"Miehet";"Naiset"
-Esimerrki: "Ehdokkaiden lukumäärä";"2021";"091 Helsinki";"Yhteensä";1163;631;532
+
+Esimerkki: "Ehdokkaiden lukumäärä";"2021";"091 Helsinki";"Yhteensä";1163;631;532
 
 Huom! puolue on "yhteensä"
