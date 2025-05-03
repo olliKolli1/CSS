@@ -23,3 +23,10 @@ Formaatti:
 Esimerkki: "Ehdokkaiden lukumäärä";"2021";"091 Helsinki";"Yhteensä";1163;631;532
 
 Huom! puolue on "yhteensä"
+
+### sukupuolijakauma.csv
+
+https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/statfin_vaerak_pxt_11re.px/table/tableViewLayout1
+
+Väestö iän (1-v.) ja sukupuolen mukaan alueittain (2021).
+Ikää ei ole huomioitu (valittu "yhteensä"). 
