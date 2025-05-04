@@ -47,9 +47,9 @@ best_turnout_alueet_data = täydellinen_data[täydellinen_data['Äänestysprosen
 # Pelkkä paikka (voi olla monta samaa)
 best_alueet = best_turnout_alueet_data['Alue'].tolist()
 
-print(f"\nKorkein äänestysprosentti: {best_voter_turnout_value:.3f}%") # Lisätty %-merkki selkeydeksi
+print(f"\nKorkein äänestysprosentti: {best_voter_turnout_value:.3f}%")
 
-col_description = "per äänioikeutettu" # Description reflecting the calculation
+col_description = "per äänioikeutettu"
 
 if len(best_alueet) == 1:
 
