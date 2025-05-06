@@ -30,3 +30,5 @@ https://pxdata.stat.fi/PxWeb/pxweb/fi/StatFin/StatFin__vaerak/statfin_vaerak_pxt
 
 Väestö iän (1-v.) ja sukupuolen mukaan alueittain (2021).
 Ikää ei ole huomioitu (valittu "yhteensä"). 
+
+encoding='utf-8-sig'
