@@ -24,23 +24,46 @@ sukupuoliJaAktiivisuus = aktiivisuusOikeutetut.merge(sukupuolijakauma[['Kunta', 
 
 #Sukupuolijakauma = naiset% - miehet%
 sukupuoliJaAktiivisuus["Sukupuolijakauma"] = ((sukupuoliJaAktiivisuus["Naiset"] / sukupuoliJaAktiivisuus["Yhteensä"] - sukupuoliJaAktiivisuus["Miehet"] / sukupuoliJaAktiivisuus["Yhteensä"])*100)
-#Äänestysprosentti
+#Äänestysprosentti yhteensä
 sukupuoliJaAktiivisuus["Äänestysprosentti"] = ((sukupuoliJaAktiivisuus["Äänestäneitä miehiä"] + sukupuoliJaAktiivisuus["Äänestäneitä naisia"]) / sukupuoliJaAktiivisuus["Äänioikeutetut"] * 100)
+#Äänestysprosentti naiset%-miehet%
+sukupuoliJaAktiivisuus["Äänestysprosentti_N-M"] = ((sukupuoliJaAktiivisuus["Äänestäneitä naisia"]) / (sukupuoliJaAktiivisuus["Äänioikeutetut"] * sukupuoliJaAktiivisuus["Naiset"] / sukupuoliJaAktiivisuus["Yhteensä"]) * 100) - ((sukupuoliJaAktiivisuus["Äänestäneitä miehiä"]) / (sukupuoliJaAktiivisuus["Äänioikeutetut"] * sukupuoliJaAktiivisuus["Miehet"] / sukupuoliJaAktiivisuus["Yhteensä"]) * 100)
+
+
+
 
 #Korrelaatio
 correlation = sukupuoliJaAktiivisuus["Sukupuolijakauma"].corr(sukupuoliJaAktiivisuus["Äänestysprosentti"])
 print(f"Korrelaatio äänestysprosentin ja sukupuolijakauman välillä: {correlation:.3f}")
 
-#Kuvaaja
+correlation2 = sukupuoliJaAktiivisuus["Sukupuolijakauma"].corr(sukupuoliJaAktiivisuus["Äänestysprosentti_N-M"])
+print(f"Korrelaatio naisten ja miesten äänestysprosentin erotuksen ja sukupuolijakauman välillä: {correlation2:.3f}")
+
+#Äänestysprosentti ja sukupuolijakauma kuvaaja
 plt.figure(figsize=(10, 6))
+plt.grid()
 sns.regplot(x="Sukupuolijakauma", y="Äänestysprosentti", data=sukupuoliJaAktiivisuus, scatter=True, line_kws={"color":"red"})
 
 #Lisää kunnan nimen datapisteelle
 for idx, kunta in sukupuoliJaAktiivisuus.iterrows():
-    plt.text(kunta["Sukupuolijakauma"], kunta["Äänestysprosentti"], kunta["Kunta"], fontsize=4, alpha=0.7)
+    plt.text(kunta["Sukupuolijakauma"], kunta["Äänestysprosentti"], kunta["Kunta"], fontsize=5, alpha=0.7)
 
 
 plt.title('Gender distribution in relation to voter turnout')
 plt.xlabel('Gender distribution (female% - male%)')
 plt.ylabel('Voter turnout (%)')
+plt.show()
+
+#Naisten ja miesten äänestysprosenttien erotuksen ja sukupuolijakauman kuvaaja
+plt.figure(figsize=(10, 6))
+plt.grid()
+sns.regplot(x="Sukupuolijakauma", y="Äänestysprosentti_N-M", data=sukupuoliJaAktiivisuus, scatter=True, line_kws={"color":"red"})
+
+#Lisää kunnan nimen datapisteelle
+for idx, kunta in sukupuoliJaAktiivisuus.iterrows():
+    plt.text(kunta["Sukupuolijakauma"], kunta["Äänestysprosentti_N-M"], kunta["Kunta"], fontsize=5, alpha=0.7)
+
+plt.title('Gender distribution in relation to difference in female and male voter turnout')
+plt.xlabel('Gender distribution (female% - male%)')
+plt.ylabel('Difference in voter turnout (female% - male%)')
 plt.show()
